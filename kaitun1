@@ -147,19 +147,17 @@ end)
 		game:GetService'VirtualUser':CaptureController()
 		game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 	end
-function CheckQuest()
-    local MyLevel = game.Players.LocalPlayer.Data.Level.Value
-    if OldWorld then
-        if MyLevel == 1 or MyLevel <= 9 then 
-            Ms = "Bandit [Lv. 5]"
-            NaemQuest = "BanditQuest1"
-            LevelQuest = 1
-            NameMon = "Bandit"
-            CFrameQuest = CFrame.new(1061.66699, 16.5166187, 1544.52905)
-            PosQuest = Vector3.new(1061.66699, 16.5166187, 1544.52905)
-            CFrameMon = CFrame.new(1199.31287, 52.2717781, 1536.91516)
-            PosMon = Vector3.new(1199.31287, 52.2717781, 1536.91516)
-        elseif MyLevel == 10 or MyLevel <= 14 then 
+	function CheckQuest() 
+		MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
+		if World1 then
+			if MyLevel == 1 or MyLevel <= 9 then
+				Mon = "Bandit"
+				LevelQuest = 1
+				NameQuest = "BanditQuest1"
+				NameMon = "Bandit"
+				CFrameQuest = CFrame.new(1059.37195, 15.4495068, 1550.4231, 0.939700544, -0, -0.341998369, 0, 1, -0, 0.341998369, 0, 0.939700544)
+				CFrameMon = CFrame.new(1045.962646484375, 27.00250816345215, 1560.8203125)
+			elseif MyLevel == 10 or MyLevel <= 14 then
             Ms = "Monkey [Lv. 14]"
             NaemQuest = "JungleQuest"
             LevelQuest = 1
