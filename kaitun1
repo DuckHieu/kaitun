@@ -2576,7 +2576,8 @@ repeat wait() until game.Players
           BTP(CFrameQ)
           end
     else
-            BTP(CFrameQ)
+        wait(2)
+            BTPZ(CFrameQ)
             end
           if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
@@ -2588,8 +2589,8 @@ repeat wait() until game.Players
           repeat game:GetService("RunService").Heartbeat:wait()
           AutoHaki()
           EquipTool(SelectWeapon)
-          wait(2)
-          BTPZ(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+          
+          Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
           v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
           v.HumanoidRootPart.Transparency = 1
           v.Humanoid.JumpPower = 0
@@ -2605,7 +2606,8 @@ repeat wait() until game.Players
           for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
           if string.find(v.Name,NameMon) then
           if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
-            BTPZ(v.CFrame * CFrame.new(posX,posY,posZ))
+            
+             Tween(v.CFrame * CFrame.new(posX,posY,posZ))
           end
           end
           end
