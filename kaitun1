@@ -2346,7 +2346,7 @@ end)
     end
 end
 ---Bypass Teleport
---made Akiki
+--made Fai Fao Hub
 function BTP(P)
 	repeat wait(0.5)
 		game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
@@ -2415,15 +2415,28 @@ ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
 ImageButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
-ImageButton.Image = "rbxassetid://11560341841"
+ImageButton.Image = "rbxassetid://15354539422"
 
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = ImageButton
 
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(244, 0, 0)), ColorSequenceKeypoint.new(0.32, Color3.fromRGB(146, 255, 251)), ColorSequenceKeypoint.new(0.65, Color3.fromRGB(180, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(96, 255, 231))}
+UIGradient.Parent = ImageButton
+
 UIAspectRatioConstraint.Parent = ImageButton
 UIAspectRatioConstraint.AspectRatio = 0.988
 
-local function MoveButton()
+
+local function HCEGY_fake_script()
+	local script = Instance.new('LocalScript', UIGradient)
+
+	local TweenService = game:GetService("TweenService")
+	local tweeninfo = TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
+	local tween = TweenService:Create(script.Parent, tweeninfo, {Rotation = 360})
+	tween:Play()
+end
+coroutine.wrap(HCEGY_fake_script)()
+local function YTZCAJC_fake_script()
 	local script = Instance.new('LocalScript', ImageButton)
 
 	local UIS = game:GetService('UserInputService')
@@ -2461,42 +2474,10 @@ local function MoveButton()
 		end
 	end)
 	script.Parent.MouseButton1Click:Connect(function()
-		game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.LeftControl,false,game)
+		game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 	end)
 end
-coroutine.wrap(MoveButton)()
-repeat wait() until game.Players
-    repeat wait() until game.Players.LocalPlayer
-    repeat wait() until game.ReplicatedStorage
-    repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
-    repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
-    repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
-    repeat wait() until game:GetService("Players")
-    repeat wait() until game:GetService("Players").LocalPlayer.Character:FindFirstChild("Energy")
-    
-    wait(0.1)
-    
-    if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
-    
-    if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-        repeat wait()
-            if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
-                if _G.Team == "Pirate" then
-                    for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-                        v.Function()
-                    end
-                elseif _G.Team == "Marine" then
-                    for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-                        v.Function()
-                    end
-                else
-                    for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-                        v.Function()
-                    end
-                end
-            end
-        until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
-    end
+coroutine.wrap(YTZCAJC_fake_script)()
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Hehe
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -2507,7 +2488,7 @@ repeat wait() until game.Players
     })
 
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
-        Title = "Select Weapon",
+        Title = "Dropdown",
         Values = {'Melee','Sword','Blox Fruit'},
         Multi = false,
         Default = 1,
@@ -2613,16 +2594,6 @@ repeat wait() until game.Players
         end
         end
         end)
-
-
-
-        local ToggleAutoSea2 = Tabs.Main:AddToggle("ToggleAutoSea2", {Title = "Auto Sea2 (Soon) ", Default = false })
-        ToggleAutoSea2:OnChanged(function(Value)
-        _G.AutoSecondSea = Value
-    end)
-    Options.ToggleAutoSea2:SetValue(false)
-
-    
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -2810,7 +2781,7 @@ repeat wait() until game.Players
           CheckLevel(SelectMonster)
           if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-            BTP(CFrameQ)
+            Tween(CFrameQ)
           if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
           game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
           end
@@ -3059,7 +3030,7 @@ spawn(function()
       BTP(CFrameQ)
       wait(0.2)
       elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude < 2500 then
-      BTP(CFrameQ)
+      Tween(CFrameQ)
       end
       else
         Tween(CFrameQ)
@@ -3157,7 +3128,7 @@ spawn(function()
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                 end
                 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                    if _G.AutoBone == true then
+                    if BypassTP then
                         wait()
                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BoneCFrame.Position).Magnitude > 2500 then
                        BTP(BoneCFrame)
@@ -3220,12 +3191,12 @@ spawn(function()
 			if _G.CakePrince then
 				pcall(function()
                     local CakeCFrame = CFrame.new(-2077, 252, -12373)
-                    if _G.CakePrince == true then
+                    if BypassTP then
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakeCFrame.Position).Magnitude > 2000 then
                     BTP(CakeCFrame)
                     wait(3)
                     elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakeCFrame.Position).Magnitude < 2000 then
-                    BTP(CakeCFrame)
+                    Tween(CakeCFrame)
                     end
                 end
 					if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then   
@@ -3332,7 +3303,7 @@ spawn(function()
 
 
     local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
-        Title = "List Boss",
+        Title = "Dropdown",
         Values = tableBoss,
         Multi = false,
         Default = 1,
@@ -3439,7 +3410,7 @@ spawn(function()
         end
 
     local DropdownMaterial = Tabs.Main:AddDropdown("DropdownMaterial", {
-        Title = "Material",
+        Title = "Dropdown",
         Values = MaterialList,
         Multi = false,
         Default = 1,
@@ -4815,7 +4786,7 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 end
 
 local SelectedPly = Tabs.Player:AddDropdown("SelectedPly", {
-    Title = "Player",
+    Title = "Dropdown",
     Values = Playerslist,
     Multi = false,
     Default = 1,
@@ -4956,7 +4927,7 @@ elseif Third_Sea then
     end
 
 local DropdownIsland = Tabs.Teleport:AddDropdown("DropdownIsland",{
-    Title = "Island",
+    Title = "Dropdown",
     Values = IslandList,
     Multi = false,
     Default = 1,
@@ -4975,101 +4946,101 @@ ToggleIsland:OnChanged(function(Value)
     if _G.TeleportIsland == true then
         repeat wait()
             if _G.SelectIsland == "WindMill" then
-                BTP(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
+                Tween(CFrame.new(979.79895019531, 16.516613006592, 1429.0466308594))
             elseif _G.SelectIsland == "Marine" then
-                BTP(CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156))
+                Tween(CFrame.new(-2566.4296875, 6.8556680679321, 2045.2561035156))
             elseif _G.SelectIsland == "Middle Town" then
-                BTP(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
+                Tween(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
             elseif _G.SelectIsland == "Jungle" then
-                BTP(CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754))
+                Tween(CFrame.new(-1612.7957763672, 36.852081298828, 149.12843322754))
             elseif _G.SelectIsland == "Pirate Village" then
-                BTP(CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969))
+                Tween(CFrame.new(-1181.3093261719, 4.7514905929565, 3803.5456542969))
             elseif _G.SelectIsland == "Desert" then
-                BTP(CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688))
+                Tween(CFrame.new(944.15789794922, 20.919729232788, 4373.3002929688))
             elseif _G.SelectIsland == "Snow Island" then
-                BTP(CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469))
+                Tween(CFrame.new(1347.8067626953, 104.66806030273, -1319.7370605469))
             elseif _G.SelectIsland == "MarineFord" then
-                BTP(CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313))
+                Tween(CFrame.new(-4914.8212890625, 50.963626861572, 4281.0278320313))
             elseif _G.SelectIsland == "Colosseum" then
-                BTP( CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969))
+                Tween( CFrame.new(-1427.6203613281, 7.2881078720093, -2792.7722167969))
             elseif _G.SelectIsland == "Sky Island 1" then
-                BTP(CFrame.new(-4869.1025390625, 733.46051025391, -2667.0180664063))
+                Tween(CFrame.new(-4869.1025390625, 733.46051025391, -2667.0180664063))
             elseif _G.SelectIsland == "Sky Island 2" then  
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
             elseif _G.SelectIsland == "Sky Island 3" then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
             elseif _G.SelectIsland == "Prison" then
-                BTP( CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656))
+                Tween( CFrame.new(4875.330078125, 5.6519818305969, 734.85021972656))
             elseif _G.SelectIsland == "Magma Village" then
-                BTP(CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875))
+                Tween(CFrame.new(-5247.7163085938, 12.883934020996, 8504.96875))
             elseif _G.SelectIsland == "Under Water Island" then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
             elseif _G.SelectIsland == "Fountain City" then
-                BTP(CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813))
+                Tween(CFrame.new(5127.1284179688, 59.501365661621, 4105.4458007813))
             elseif _G.SelectIsland == "Shank Room" then
-                BTP(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
+                Tween(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
             elseif _G.SelectIsland == "Mob Island" then
-                BTP(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
+                Tween(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
             elseif _G.SelectIsland == "The Cafe" then
-                BTP(CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828))
+                Tween(CFrame.new(-380.47927856445, 77.220390319824, 255.82550048828))
             elseif _G.SelectIsland == "Frist Spot" then
-                BTP(CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375))
+                Tween(CFrame.new(-11.311455726624, 29.276733398438, 2771.5224609375))
             elseif _G.SelectIsland == "Dark Area" then
-                BTP(CFrame.new(3780.0302734375, 22.652164459229, -3498.5859375))
+                Tween(CFrame.new(3780.0302734375, 22.652164459229, -3498.5859375))
             elseif _G.SelectIsland == "Flamingo Mansion" then
-                BTP(CFrame.new(-483.73370361328, 332.0383605957, 595.32708740234))
+                Tween(CFrame.new(-483.73370361328, 332.0383605957, 595.32708740234))
             elseif _G.SelectIsland == "Flamingo Room" then
-                BTP(CFrame.new(2284.4140625, 15.152037620544, 875.72534179688))
+                Tween(CFrame.new(2284.4140625, 15.152037620544, 875.72534179688))
             elseif _G.SelectIsland == "Green Zone" then
-                BTP( CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344))
+                Tween( CFrame.new(-2448.5300292969, 73.016105651855, -3210.6306152344))
             elseif _G.SelectIsland == "Factory" then
-                BTP(CFrame.new(424.12698364258, 211.16171264648, -427.54049682617))
+                Tween(CFrame.new(424.12698364258, 211.16171264648, -427.54049682617))
             elseif _G.SelectIsland == "Colossuim" then
-                BTP( CFrame.new(-1503.6224365234, 219.7956237793, 1369.3101806641))
+                Tween( CFrame.new(-1503.6224365234, 219.7956237793, 1369.3101806641))
             elseif _G.SelectIsland == "Zombie Island" then
-                BTP(CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094))
+                Tween(CFrame.new(-5622.033203125, 492.19604492188, -781.78552246094))
             elseif _G.SelectIsland == "Two Snow Mountain" then
-                BTP(CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938))
+                Tween(CFrame.new(753.14288330078, 408.23559570313, -5274.6147460938))
             elseif _G.SelectIsland == "Punk Hazard" then
-                BTP(CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125))
+                Tween(CFrame.new(-6127.654296875, 15.951762199402, -5040.2861328125))
             elseif _G.SelectIsland == "Cursed Ship" then
-                BTP(CFrame.new(923.40197753906, 125.05712890625, 32885.875))
+                Tween(CFrame.new(923.40197753906, 125.05712890625, 32885.875))
             elseif _G.SelectIsland == "Ice Castle" then
-                BTP(CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188))
+                Tween(CFrame.new(6148.4116210938, 294.38687133789, -6741.1166992188))
             elseif _G.SelectIsland == "Forgotten Island" then
-                BTP(CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875))
+                Tween(CFrame.new(-3032.7641601563, 317.89672851563, -10075.373046875))
             elseif _G.SelectIsland == "Ussop Island" then
-                BTP(CFrame.new(4816.8618164063, 8.4599885940552, 2863.8195800781))
+                Tween(CFrame.new(4816.8618164063, 8.4599885940552, 2863.8195800781))
             elseif _G.SelectIsland == "Mini Sky Island" then
-                BTP(CFrame.new(-288.74060058594, 49326.31640625, -35248.59375))
+                Tween(CFrame.new(-288.74060058594, 49326.31640625, -35248.59375))
             elseif _G.SelectIsland == "Great Tree" then
-                BTP(CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625))
+                Tween(CFrame.new(2681.2736816406, 1682.8092041016, -7190.9853515625))
             elseif _G.SelectIsland == "Castle On The Sea" then
-                BTP(CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375))
+                BTPZ(CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375))
             elseif _G.SelectIsland == "MiniSky" then
-                BTP(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
+                Tween(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
             elseif _G.SelectIsland == "Port Town" then
-                BTP(CFrame.new(-290.7376708984375, 6.729952812194824, 5343.5537109375))
+                Tween(CFrame.new(-290.7376708984375, 6.729952812194824, 5343.5537109375))
             elseif _G.SelectIsland == "Hydra Island" then
-                BTP(CFrame.new(5753.5478515625, 610.7880859375, -282.33172607421875))
+                BTPZ(CFrame.new(5753.5478515625, 610.7880859375, -282.33172607421875))
             elseif _G.SelectIsland == "Floating Turtle" then
-                BTP(CFrame.new(-13274.528320313, 531.82073974609, -7579.22265625))
+                Tween(CFrame.new(-13274.528320313, 531.82073974609, -7579.22265625))
             elseif _G.SelectIsland == "Mansion" then
-                BTP(CFrame.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
+                BTPZ(CFrame.new(-12468.5380859375, 375.0094299316406, -7554.62548828125))
             elseif _G.SelectIsland == "Haunted Castle" then
-                BTP(CFrame.new(-9515.3720703125, 164.00624084473, 5786.0610351562))
+                Tween(CFrame.new(-9515.3720703125, 164.00624084473, 5786.0610351562))
             elseif _G.SelectIsland == "Ice Cream Island" then
-                BTP(CFrame.new(-902.56817626953, 79.93204498291, -10988.84765625))
+                Tween(CFrame.new(-902.56817626953, 79.93204498291, -10988.84765625))
             elseif _G.SelectIsland == "Peanut Island" then
-                BTP(CFrame.new(-2062.7475585938, 50.473892211914, -10232.568359375))
+                Tween(CFrame.new(-2062.7475585938, 50.473892211914, -10232.568359375))
             elseif _G.SelectIsland == "Cake Island" then
-                BTP(CFrame.new(-1884.7747802734375, 19.327526092529297, -11666.8974609375))
+                Tween(CFrame.new(-1884.7747802734375, 19.327526092529297, -11666.8974609375))
             elseif _G.SelectIsland == "Cocoa Island" then
-                BTP(CFrame.new(87.94276428222656, 73.55451202392578, -12319.46484375))
+                Tween(CFrame.new(87.94276428222656, 73.55451202392578, -12319.46484375))
             elseif _G.SelectIsland == "Candy Island" then
-                BTP(CFrame.new(-1014.4241943359375, 149.11068725585938, -14555.962890625))
+                Tween(CFrame.new(-1014.4241943359375, 149.11068725585938, -14555.962890625))
             elseif _G.SelectIsland == "Isle Outpost" then
-                BTP(CFrame.new(-16542.447265625, 55.68632888793945, 1044.41650390625))
+                Tween(CFrame.new(-16542.447265625, 55.68632888793945, 1044.41650390625))
             end
         until not _G.TeleportIsland
     end
@@ -5095,7 +5066,7 @@ end
 _G.SelectFruit = ""
 
 local DropdownFruit = Tabs.Fruit:AddDropdown("DropdownFruit", {
-    Title = "Fruit",
+    Title = "Dropdown",
     Values = Table_DevilFruitSniper,
     Multi = false,
     Default = 1,
@@ -5363,7 +5334,7 @@ end)
 local Chips = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","Buddha","Sand","Phoenix","Dough"}
 
 local DropdownRaid = Tabs.Raid:AddDropdown("DropdownRaid", {
-    Title = "Select Raid",
+    Title = "Dropdown",
     Values = Chips,
     Multi = false,
     Default = 1,
@@ -6430,7 +6401,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
             Hop()
             Fluent:Notify({
-                Title = "Vair HOP",
+                Title = "Fai Fao Hub",
                 Content = "Hop...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -6438,7 +6409,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
             Hop()
             Fluent:Notify({
-                Title = "Vair Hop",
+                Title = "Fai Fao Hub",
                 Content = "Hop...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -6474,4 +6445,5 @@ spawn(function()
     end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------------
+
 
