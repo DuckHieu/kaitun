@@ -5039,7 +5039,7 @@ ToggleIsland:OnChanged(function(Value)
             elseif _G.SelectIsland == "MiniSky" then
                 Tween(CFrame.new(-260.65557861328, 49325.8046875, -35253.5703125))
             elseif _G.SelectIsland == "Port Town" then
-                Tween(CFrame.new(-290.7376708984375, 6.729952812194824, 5343.5537109375))
+                BTP(CFrame.new(-290.7376708984375, 6.729952812194824, 5343.5537109375))
             elseif _G.SelectIsland == "Hydra Island" then
                 BTPZ(CFrame.new(5753.5478515625, 610.7880859375, -282.33172607421875))
             elseif _G.SelectIsland == "Floating Turtle" then
